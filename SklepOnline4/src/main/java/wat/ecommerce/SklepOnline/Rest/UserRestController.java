@@ -18,12 +18,12 @@ public class UserRestController {
         this.userRepositoryUserDetailsService = userRepositoryUserDetailsService;
     }
 
-    @GetMapping("/api/user/verification")
+    @GetMapping("/api/checkuser")
     String findUser(){
         return "You're verified";
     }
 
-    @PostMapping("/api/user")
+    @PostMapping("/api/adduser")
     public ResponseEntity<Void> addNewUser(@RequestBody UserCreateDto user){
         userRepositoryUserDetailsService.signUpUser(user);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
